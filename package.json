@@ -1,0 +1,16 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "cd server && npm start",
+    "build": "cd server && npm run build && cd ../client && npm run build",
+    "install": "cd server && npm i && cd ../client && npm i"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+  }
+}
