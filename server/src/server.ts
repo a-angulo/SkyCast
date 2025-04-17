@@ -25,9 +25,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(routes);
 
 // ✅ Fallback: Serve index.html for any unknown route (SPA mode)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'client', 'dist', 'index.html'));
-});
-
+app.get("*", (_req, res) => {
+    res.sendFile(path.join(__dirname, '..', '..', 'client', 'dist', 'index.html'));
+  });
 // ✅ Start the server
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));//CHAT GPT TROUBLESHOOTING
