@@ -1,21 +1,33 @@
 import dotenv from 'dotenv';
 import express from 'express';
-dotenv.config();
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Import the routes
 import routes from './routes/index.js';
 
-const app = express();
+dotenv.config();
 
+const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(express.static('client/dist'))// TODO: Serve static files of entire client dist folder
+// __dirname workaround for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+// ✅ Serve Vite's static files from client/dist
+app.use(express.static(path.join(__dirname, '..', '..', 'client', 'dist')));
+
+// ✅ Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));// TODO: Implement middleware for parsing JSON and urlencoded form data
+app.use(express.urlencoded({ extended: true }));
 
-// TODO: Implement middleware to connect the routes
+// ✅ API routes
 app.use(routes);
 
-// Start the server on the port
-app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+// ✅ Fallback: Serve index.html for any unknown route (SPA mode)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', '..', 'client', 'dist', 'index.html'));
+});
+
+// ✅ Start the server
+app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));//CHAT GPT TROUBLESHOOTING
