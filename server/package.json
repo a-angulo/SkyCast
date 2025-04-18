@@ -1,8 +1,8 @@
 {
-  "name": "weather-dashboard",
+  "name": "SkyCast",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "SkyCast - A TypeScript-powered weather app",
+ "main": "server.js",
   "type": "module",
   "scripts": {
     "build": "npx tsc",
@@ -32,3 +32,4 @@
     "typescript": "^5.4.5"
   }
 }
+
