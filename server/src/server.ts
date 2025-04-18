@@ -3,15 +3,15 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import fs from 'fs';
-import routes from './routes/index.js'; // ✅ Make sure this path is correct
+import routes from './routes/index.js'; // ✅ Ensure this path is still valid
 
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Correct path to client/dist (3 levels up from server/src)
-const clientDistPath = path.resolve(__dirname, '..', '..', 'Module 9 Weather Dashboard', 'client', 'dist');
+// ✅ Dynamic path to client/dist (safe for local and Render environments)
+const clientDistPath = path.resolve(__dirname, '..', '..', 'client', 'dist');
 
 console.log('💡 Serving frontend from:', clientDistPath);
 console.log('✅ Does index.html exist?', fs.existsSync(path.join(clientDistPath, 'index.html')));
