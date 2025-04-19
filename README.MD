@@ -1,6 +1,10 @@
 # 🌤️ SkyCast ☁️ – Your Magical Weather Companion  
 A sleek, real-time weather dashboard built with **TypeScript**, powered by **OpenWeatherMap**, and enhanced with **local search history** and a user-friendly interface. Perfect for checking conditions before takeoff — or just stepping outside.  
 ![license-badge](https://img.shields.io/badge/License-MIT-yellow.svg)  
+---
+🚀 **[Live Demo](https://skycast-mq3a.onrender.com)**
+
+ 
 ---  
 ## 📚 Table of Contents  
 - 📝 [Description](#-description)  
